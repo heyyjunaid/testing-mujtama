@@ -1,0 +1,13 @@
+@import "../../DS/base/colors";
+
+.root {
+  padding: 60px 5%;
+  min-height: calc(100vh - 72.5px);
+  .section {
+    margin-top: 32px;
+    ul {
+      margin-top: 12px;
+      margin-left: 16px;
+    }
+  }
+}

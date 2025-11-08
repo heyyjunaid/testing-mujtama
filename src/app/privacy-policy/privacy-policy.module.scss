@@ -1,0 +1,40 @@
+.root {
+  padding: 60px 5%;
+}
+
+.section {
+  margin-bottom: 32px;
+
+  &.level-1 {
+    padding-left: 0;
+  }
+
+  &.level-2 {
+    padding-left: 16px;
+  }
+
+  &.level-3 {
+    padding-left: 32px;
+  }
+
+  ul {
+    margin: 12px 0;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+}
+
+.details {
+  margin-top: 12px;
+  p {
+    margin-bottom: 4px;
+  }
+}

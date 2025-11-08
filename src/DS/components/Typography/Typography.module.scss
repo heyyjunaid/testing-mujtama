@@ -1,0 +1,51 @@
+@import "../../base/colors";
+@import "../../base/responsive";
+// Sizes
+
+.textLg {
+  font-size: 24px;
+}
+.text2xl {
+  font-size: 62px;
+  @media (max-width: $width-breakpoint-md) {
+    font-size: 32px;
+  }
+}
+.textXl {
+  font-size: 20px;
+}
+
+.textBase {
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
+}
+.textSm {
+  font-size: 12px;
+}
+
+// Colors
+.textPrimary {
+  color: $primary-text;
+}
+
+.textSecondary {
+  color: $light-text;
+}
+.textLight {
+  color: $white-text;
+}
+
+// Font Wights
+.fontNormal {
+  font-weight: normal;
+}
+.fontBold {
+  font-weight: bold;
+}
+.fontSemiBold {
+  font-weight: 500;
+}
+.fontLight {
+  font-weight: lighter;
+}
