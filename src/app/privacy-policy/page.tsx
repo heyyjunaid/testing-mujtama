@@ -1,12 +1,53 @@
+"use client";
 import React from "react";
 import Typography from "@/DS/components/Typography";
 import s from "./privacy-policy.module.scss";
 import { FontWeight, TextColor, TextSize } from "@/DS/types/Typography";
 
 // ==============================
+// 🔹 TYPES
+// ==============================
+interface SectionDetails {
+  name?: string;
+  email?: string;
+  phone?: string;
+  resolutionTime?: string;
+  [key: string]: string | undefined;
+}
+
+interface ContactInfo {
+  email: string;
+}
+
+interface Subsection {
+  title: string;
+  description?: string;
+  points?: string[];
+  note?: string;
+  subsections?: Subsection[];
+  contact?: ContactInfo;
+  details?: SectionDetails;
+}
+
+interface Section extends Subsection {
+  rights?: string[];
+  email?: string;
+}
+
+interface PrivacyPolicyData {
+  title: string;
+  lastUpdated: string;
+  intro: {
+    description: string;
+    consent: string;
+  };
+  sections: Section[];
+}
+
+// ==============================
 // 🔹 PRIVACY POLICY DATA
 // ==============================
-const privacyPolicy = {
+const privacyPolicy: PrivacyPolicyData = {
   title: "Privacy Policy",
   lastUpdated: "June 10, 2024",
   intro: {
@@ -160,9 +201,12 @@ If you do not agree, please refrain from using the App.`,
 // ==============================
 // 🔹 COMPONENT
 // ==============================
-const PrivacyPolicy = () => {
-  // Recursive renderer for sections + subsections
-  const renderSection = (section, level = 1, indexPath = []) => {
+const PrivacyPolicy: React.FC = () => {
+  const renderSection = (
+    section: Section,
+    level = 1,
+    indexPath: number[] = []
+  ) => {
     const numbering = indexPath.join(".");
     const sectionTitle = numbering
       ? `${numbering} ${section.title}`
@@ -199,7 +243,7 @@ const PrivacyPolicy = () => {
 
         {section.points && (
           <ul>
-            {section.points.map((point: string, idx: number) => (
+            {section.points.map((point, idx) => (
               <li key={idx}>
                 <Typography
                   label={point}
